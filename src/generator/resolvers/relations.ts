@@ -12,6 +12,7 @@ import {
   generateTypeGraphQLImport,
   generateArgsImports,
   generateModelsImports,
+  generateNestjsKeycloakTyepGraphQLImport,
   generateHelpersFileImport,
 } from "../imports";
 import { DmmfDocument } from "../dmmf/dmmf-document";
@@ -49,6 +50,7 @@ export default function generateRelationsResolverClassesFromModel(
     overwrite: true,
   });
 
+  generateNestjsKeycloakTyepGraphQLImport(sourceFile);
   generateTypeGraphQLImport(sourceFile);
   generateModelsImports(
     sourceFile,
@@ -71,7 +73,7 @@ export default function generateRelationsResolverClassesFromModel(
     isExported: true,
     decorators: [
       {
-        name: "TypeGraphQL.Resolver",
+        name: "Resolver",
         arguments: [`_of => ${model.typeName}`],
       },
     ],

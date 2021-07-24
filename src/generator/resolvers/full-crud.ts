@@ -6,6 +6,7 @@ import {
   generateTypeGraphQLImport,
   generateArgsImports,
   generateModelsImports,
+  generateNestjsKeycloakTyepGraphQLImport,
   generateOutputsImports,
   generateGraphQLFieldsImport,
   generateHelpersFileImport,
@@ -32,6 +33,7 @@ export default function generateCrudResolverClassFromMapping(
     overwrite: true,
   });
 
+  generateNestjsKeycloakTyepGraphQLImport(sourceFile);
   generateTypeGraphQLImport(sourceFile);
   generateGraphQLFieldsImport(sourceFile);
   generateArgsImports(
@@ -60,7 +62,7 @@ export default function generateCrudResolverClassFromMapping(
     isExported: true,
     decorators: [
       {
-        name: "TypeGraphQL.Resolver",
+        name: "Resolver",
         arguments: [`_of => ${model.typeName}`],
       },
     ],

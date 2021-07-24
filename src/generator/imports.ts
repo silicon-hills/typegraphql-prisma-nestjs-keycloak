@@ -51,6 +51,15 @@ export function generateGraphQLScalarTypeImport(sourceFile: SourceFile) {
   });
 }
 
+export function generateNestjsKeycloakTyepGraphQLImport(
+  sourceFile: SourceFile,
+) {
+  sourceFile.addImportDeclaration({
+    moduleSpecifier: "nestjs-keycloak-typegraphql",
+    namedImports: ["Resolver"],
+  });
+}
+
 export function generateCustomScalarsImport(sourceFile: SourceFile, level = 0) {
   sourceFile.addImportDeclaration({
     moduleSpecifier:

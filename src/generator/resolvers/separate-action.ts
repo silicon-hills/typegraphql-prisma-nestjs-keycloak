@@ -6,6 +6,7 @@ import {
   generateTypeGraphQLImport,
   generateArgsImports,
   generateModelsImports,
+  generateNestjsKeycloakTyepGraphQLImport,
   generateOutputsImports,
   generateGraphQLFieldsImport,
   generateHelpersFileImport,
@@ -34,6 +35,7 @@ export default function generateActionResolverClass(
     { overwrite: true },
   );
 
+  generateNestjsKeycloakTyepGraphQLImport(sourceFile);
   generateTypeGraphQLImport(sourceFile);
   generateGraphQLFieldsImport(sourceFile);
   if (action.argsTypeName) {
@@ -60,7 +62,7 @@ export default function generateActionResolverClass(
     isExported: true,
     decorators: [
       {
-        name: "TypeGraphQL.Resolver",
+        name: "Resolver",
         arguments: [`_of => ${model.typeName}`],
       },
     ],
